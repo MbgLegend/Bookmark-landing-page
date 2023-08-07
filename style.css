@@ -1,0 +1,756 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+:root {
+    --soft-blue: hsl(231, 69%, 60%);
+    --soft-red: hsl(0, 94%, 66%);
+    --grayish-blue: hsl(229, 8%, 60%);
+    --very-dark-blue: hsl(229, 31%, 21%);
+    --Rubik: 'Rubik', sans-serif;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html, 
+body {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--Rubik);
+    overflow-x: hidden;
+}
+header {
+    padding: 3.5% 11%;
+    height: 88vh;
+    position: relative;
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+}   
+header nav ul {
+    list-style: none;
+    list-style-position: inside;
+    display: flex;
+    column-gap: 2.75rem;
+    align-items: center;
+}
+header nav ul li {
+    color: var(--very-dark-blue);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+header nav ul li:hover {
+    color: var(--soft-red);
+}
+header nav ul li:last-of-type {
+    background-color: var(--soft-red);
+    color: #fff;
+    padding: 0.65rem 2.15rem;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    border: 1px solid transparent;
+}
+header nav ul li:last-of-type:hover {
+    border: 1px solid var(--soft-red);
+    background-color: transparent;
+    color: var(--soft-red);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+header .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    column-gap: 4rem;
+    row-gap: 3rem;
+}
+header .grid > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.375rem;
+}
+header .grid > div h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--very-dark-blue);
+}
+header .grid > div p {
+    color: var(--grayish-blue);
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+header .grid > div div button {
+    padding: 0.8rem 1.625rem;
+    font-family: var(--Rubik);
+    font-weight: 400;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+header .grid > div div button:first-of-type {
+    background-color: var(--soft-blue);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+header .grid > div div button:first-of-type:hover {
+    border: 1px solid var(--soft-blue);
+    background-color: transparent;
+    color: var(--soft-blue);
+}
+header .grid > div div button:last-of-type {
+    margin-left: 1rem;
+    background-color: #f7f7f7;
+    box-shadow: 0 10px 8px  hsla(231, 69%, 60%, 0.11);
+}
+header .grid > div div button:last-of-type:hover {
+    border: 1px solid var(--very-dark-blue);
+    background-color: transparent;
+    color: var(--very-dark-blue);
+}
+header .grid > img {
+    margin-left: auto;
+}
+header canvas {
+    width: 40rem;
+    height: 22rem;
+    background-color: var(--soft-blue);
+    border-top-left-radius: 40%;
+    border-bottom-left-radius: 40%;
+    position: absolute;
+    bottom: 19%;
+    right: 0;
+    z-index: -1;
+}
+
+section {
+    padding: 0 11%;
+    position: relative;
+}
+section > h2 {
+    font-size: 1.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+section > p {
+    font-size: 1.1em;
+    color: var(--grayish-blue);
+    margin: 1rem 0;
+    line-height: 1.65;
+    text-align: center;
+}
+section > div:first-of-type {
+    margin: 3.35rem auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+section > div:first-of-type span {
+    width: 20%;
+    position: relative;
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+section > div:first-of-type span:hover {
+    color: var(--soft-red);
+}
+section > div:first-of-type span::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #33333323;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+}
+section > div:first-of-type span.active::after {
+    background-color: var(--soft-red);
+    height: 3px;
+}
+section > main {
+    margin: 6rem 0 8rem;
+    position: relative;
+}
+section > main > div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 6rem;
+    row-gap: 3rem;
+}
+section > main > div img {
+    margin: 0 auto;
+}
+section > main > div div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
+}
+section > main > div div h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--very-dark-blue);
+}
+section > main > div div p {
+    width: 80%;
+    font-size: 1.085rem;
+    color: var(--grayish-blue);
+    line-height: 1.55;
+}
+section > main > div div button {
+    width: fit-content;
+    padding: 0.8rem 1.25rem;
+    background-color: var(--soft-blue);
+    color: #fff;
+    font-family: var(--Rubik);
+    border: 1px solid transparent;
+    font-size: 1.025rem;
+    font-weight: 500;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+section > canvas {
+    width: 40rem;
+    height: 22rem;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
+    background-color: var(--soft-blue);
+    position: absolute;
+    left: 0;
+    bottom: -15%;
+    z-index: -1;
+}
+
+article {
+    padding: 6.5% 11% 3.75%;
+    text-align: center;
+}
+article > h4 {
+    font-size: 1.725rem;
+    font-weight: 500;
+}
+article > p {
+    margin: 1.25rem auto;
+    width: 45%;
+    color: var(--grayish-blue);
+    font-size: 1.075rem;
+    line-height: 1.55;
+}
+article > div {
+    display: grid;
+    grid-template-columns: repeat(3, 225px);
+    justify-content: center;
+    column-gap: 5.75rem;
+    margin: 3rem 0;
+}
+article > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 8px  hsla(231, 69%, 60%, 0.11);
+    border-radius: 10px;
+    padding: 1.25rem 0;
+    row-gap: 0.65rem;
+    margin: 0 auto;
+}
+article > div > div:nth-of-type(2) {
+    position: relative;
+    top: 2rem;
+}
+article > div > div:nth-of-type(3) {
+    position: relative;
+    top: 4rem;
+}
+article > div > div > * {
+    width: fit-content;
+}
+article > div > div > img {
+    margin-bottom: 14px;
+}
+article > div > div > h5 {
+    font-size: 1.1rem;
+    color: var(--very-dark-blue);
+    font-weight: 500;
+}
+article > div > div > p {
+    color: var(--grayish-blue);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+article > div > div > button {
+    background-color: var(--soft-blue);
+    border: 1px solid var(--soft-blue);
+    font-family: var(--Rubik);
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 0.725rem 1.1rem;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.144);
+}
+article > div > div > button:hover {
+    background-color: transparent;
+    border: 1px solid var(--soft-blue);
+    color: var(--soft-blue);
+}
+article main {
+    margin: 12rem 0 4rem;
+}
+article main > h6 {
+    font-size: 1.85rem;
+    font-weight: 500;
+    color: var(--very-dark-blue);
+}
+article main > p {
+    color: var(--grayish-blue);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    width: 45%;
+    margin: 1.25rem auto 2.25rem;
+}
+article main > div {
+    width: 45%;
+    margin: 0 auto;
+    text-align: start;
+    margin-top: 2.75rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid #33333323;
+    border-bottom: 1px solid #33333323;
+}
+article main > div > hr {
+    border: none;
+    border-top: 1px solid #33333323;
+    margin: 1.1rem 0;
+}
+article main > div > div > h6 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--very-dark-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+article main > div > div > h6:hover {
+    color: var(--soft-red);
+}
+article main > div > div > h6 img {
+    cursor: pointer;
+}
+article main > div > div > h6 img.active {
+    transform: rotate(180deg);
+    filter: hue-rotate(120deg);
+}
+article main > div > div > p {
+    font-size: 1.05rem;
+    color: var(--grayish-blue);
+    line-height: 1.85;
+    margin: 1rem 0;
+    display: none;
+}
+article main > div > div > p.active {
+    display: block;
+}
+article main > button {
+    background-color: var(--soft-blue);
+    font-family: var(--Rubik);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.125rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3rem;
+}
+
+footer main {
+    background-color: var(--soft-blue);    
+    padding: 4% 11%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer main > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.8rem;
+    text-align: center;
+    color: #fff;
+}
+footer main > div h6 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.35rem;
+}
+footer main > div h5 {
+    font-size: 1.35rem;
+    font-weight: 500;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.95rem;
+}
+footer main > div > div {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+}
+footer main > div > div .input {
+    width: 70%;
+    font-size: 0.9rem;
+    font-family: var(--Rubik);
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.1rem;
+    color: var(--grayish-blue);
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+footer main > div > div .input img {
+    display: none;
+}
+footer main > div > div .input p {
+    position: absolute;
+    bottom: -1.175rem;
+    color: #fff;
+    font-size: 0.785rem;
+    font-style: italic;
+    left: 2px;
+    display: none;
+}
+footer main > div > div .input.active {
+    border: 3px solid var(--soft-red);
+    border-bottom: 1.5rem solid var(--soft-red);
+}
+footer main > div > div .input.active p {
+    display: block;
+}
+footer main > div > div .input.active img {
+    display: inline-block;
+}
+footer main > div > div .input input {
+    background-color: transparent;
+    border: none;
+    font-size: 0.9rem;
+    color: var(--grayish-blue);
+    outline: none;
+    font-family: var(--Rubik);
+    width: 90%;
+}
+footer main > div > div input::placeholder {
+    color: var(--grayish-blue);
+}
+footer main > div > div button {
+    width: 25%;
+    background-color: var(--soft-red);
+    padding: 0.8rem 1.1rem;
+    border: 3px solid transparent;
+    font-family: var(--Rubik);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 0.575rem;
+    cursor: pointer;
+    align-self: flex-start;
+    outline: none;
+}
+footer main > div > div button:hover {
+    background-color: #fff;
+    border: 3px solid var(--soft-red);
+    color: var(--soft-red);
+}
+footer > div {
+    background-color: var(--very-dark-blue);
+    padding: 2% 11%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer > div > div {
+    display: flex;
+    column-gap: 3.5rem;
+    align-items: center;
+}
+footer > div > div > img {
+    filter: brightness(200%);
+}
+footer > div > div > ul {
+    list-style: none;
+    list-style-position: inside;
+    display: flex;
+    gap: 2.25rem;
+}
+footer > div > div > ul li {
+    text-transform: uppercase;
+    color: #e4eaf8;
+    font-size: 0.815rem;
+    cursor: pointer;
+} 
+footer > div > div > ul li:hover {
+    color: var(--soft-red);
+}
+footer > div > div > ul li img:hover {
+    filter: hue-rotate(120deg);
+}
+
+.menu, .close, .icon {
+    cursor: pointer;
+    width: 1.35rem;
+    display: none;
+}
+
+@media only screen and (max-width: 1150px) {
+    header .grid {
+        margin: 4rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+    header .grid > div {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    header .grid img {
+        margin: 0 auto;
+    }
+    header canvas {
+        bottom: 36%;
+    }
+    section {
+        margin-top: 10rem;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    section > main > div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    section canvas {
+        bottom: 10rem;
+        height: 19rem;
+    }
+    section > main > div div {
+        position: relative;
+        top: 5rem;
+        text-align: center;
+        align-items: center;
+    }
+    section > div:first-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px solid #33333323;
+    }
+    section > div:first-of-type span {
+        width: 100%;
+        margin: 1.35rem 0;
+    }
+    section > div:first-of-type span::after {
+        bottom: -1.45rem;
+    }
+    article > div {
+        grid-template-columns: 1fr;
+        row-gap: 1.5rem;
+    }
+    article > p {
+        width: 90%;
+        margin-bottom: 4rem;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    article main > p {
+        width: 80%;
+    }
+    article main > div {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    header nav ul {
+        display: none;
+    }
+    header nav.active {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        align-items: flex-start;
+        padding: 1.5rem 2rem;
+        background-color:  hsla(229, 31%, 21%, 0.678);
+        z-index: 999;
+    }
+    header nav.active img {
+        filter: brightness(0) saturate(100%) invert(100%);
+    }
+    header nav.active ul {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 7rem;
+        flex-direction: column;
+        align-items: center;
+        border-top: 3px solid  var(--grayish-blue);
+        width: 90%;
+    }
+    header nav.active ul li {
+        color: #fff;
+        border-bottom: 3px solid var(--grayish-blue);
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        padding: 2rem;
+        text-align: center;
+        width: 100%;
+    }
+    header nav.active ul li:last-of-type {
+        border: 3px solid #fff;
+        background-color: transparent;
+        margin: 2.75rem;
+        padding: 1.05rem;
+    }
+    header nav.active .icon {
+        display: flex;
+        column-gap: 2rem;
+        position: absolute;
+        bottom: 10rem;
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: center;
+    }
+    .menu {
+        display: block;
+    }
+    .close {
+        display: none;
+    }
+    nav.active .menu {
+        display: none;
+    }
+    nav.active .close {
+        display: block;
+    }
+    body {
+        overflow: visible;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    header, article, section {
+        padding: 4%;
+    }
+    header canvas {
+        width: 80%;
+        height: 30%;
+    }
+    header  h1 {
+        font-size: 1.5rem;
+        color: red;
+    }
+    header .grid > img {
+        width: 100%;
+    }
+    section canvas {
+        bottom: 26%;
+        width: 80%;
+        height: 20%;
+    }
+    section main div img {
+        width: 90%;
+    }
+    article main > div,
+    article main > p,
+    section > main > div div p  {
+        width: 100%;
+    }
+    footer main > div > div button  {
+        font-size: 0.85rem;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    footer main > div > div {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 0.85rem;
+    }
+    footer main > div > div .input,
+    footer main > div > div button  {
+        width: 100%;
+        margin: 0;
+    }
+    footer > div {
+        flex-direction: column;
+        row-gap: 2rem;
+    }   
+    footer > div > div {
+        flex-direction: column;
+        row-gap: 2rem;
+        text-align: center;
+        justify-content: center;
+    }
+    footer > div > div:first-of-type ul {
+        flex-direction: column;
+        row-gap: 2.5rem;
+    }
+    section > p {
+        font-size: 0.95rem;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+   header canvas {
+        height: 20%;
+        bottom: 42%;
+   } 
+} 
+
+@media only screen and (max-width: 500px) {
+    header canvas {
+        bottom: 48%;
+        width: 60%;
+        height: 20%;
+    }
+    header .grid > div h1 {
+       font-size: 1.5rem;
+    }
+    header .grid > div p {
+        font-size: 0.85rem;
+    }
+    section canvas {
+        width: 60%;
+        height: 20%;
+        bottom: 30%;
+    }
+    header .grid > div div button {
+        width: 100%;
+        margin: 10px 0;
+    }
+    header .grid > div div button:last-of-type {
+        margin: 0;
+    }
+}
